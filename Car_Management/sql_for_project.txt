@@ -1,0 +1,26 @@
+create database car_management;
+use car_management;
+
+create table cars(
+    carID int auto_increment primary key ,
+    name varchar(30),
+    seating int,
+    type varchar(30)
+);
+
+create table customer(
+    customerID int auto_increment primary key ,
+    name varchar(50),
+    address text,
+    phone int
+);
+
+create table lendcar(
+    id int auto_increment primary key ,
+    customerID int,
+    carID int,
+    date date,
+    returndate date,
+    foreign key (customerID) references customer(customerID),
+    foreign key (carID) references cars(carID)
+);
